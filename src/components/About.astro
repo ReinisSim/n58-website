@@ -1,0 +1,71 @@
+---
+const AIRBNB_URL = 'https://www.airbnb.com/h/n58?utm_source=website&utm_medium=about';
+---
+
+<section id="about" class="py-20 bg-stone-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <p class="text-timber text-xs font-medium tracking-widest uppercase mb-3">The Property</p>
+        <h2 class="font-display text-4xl text-zinc-900 mb-6 leading-snug">
+          Built for those who want to slow down.
+        </h2>
+        <p class="text-zinc-600 leading-relaxed mb-4">
+          N58 sits at Nēģu 58 in Carnikava — a quiet village on the edge of the national park,
+          where the Vecgauja river winds through the coastal pines before the Baltic Sea begins.
+        </p>
+        <p class="text-zinc-600 leading-relaxed mb-4">
+          The house is new, modern, and designed around outdoor living. The motorised louvered
+          pergola blurs the line between inside and out — open to the sun, tilted against the rain,
+          or closed completely. The garden is large and private. The river is a two-minute walk.
+        </p>
+        <p class="text-zinc-600 leading-relaxed mb-8">
+          Riga is 30 km away. But once you're here, you probably won't want to leave.
+        </p>
+        <a
+          href={AIRBNB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-charcoal hover:bg-zinc-700 text-white font-medium px-8 py-4 rounded-full transition-colors text-sm tracking-wide"
+        >
+          Check availability
+        </a>
+      </div>
+
+      <div class="relative">
+        <!-- Replace about.jpg with a good interior or garden shot -->
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-200">
+          <img
+            src="/images/about.jpg"
+            alt="N58 terrace and garden, Carnikava Latvia"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            onerror="this.style.display='none'"
+          />
+        </div>
+
+        <!-- Stats card -->
+        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-lg">
+          <div class="flex items-center gap-5">
+            <div class="text-center">
+              <div class="font-display text-3xl text-timber font-medium">2</div>
+              <div class="text-xs text-zinc-400 mt-1">Bedrooms</div>
+            </div>
+            <div class="w-px h-10 bg-zinc-100"></div>
+            <div class="text-center">
+              <div class="font-display text-3xl text-timber font-medium">4</div>
+              <div class="text-xs text-zinc-400 mt-1">Guests</div>
+            </div>
+            <div class="w-px h-10 bg-zinc-100"></div>
+            <div class="text-center">
+              <div class="font-display text-3xl text-timber font-medium">1</div>
+              <div class="text-xs text-zinc-400 mt-1">Bathroom</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

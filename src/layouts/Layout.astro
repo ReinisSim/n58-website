@@ -1,0 +1,125 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'N58 — Riverside Retreat in Carnikava, Latvia',
+  description = 'Modern 2-bedroom retreat next to the Vecgauja river and Carnikava national park. 30 minutes from Riga. Sleeps 4.',
+  image = '/images/hero.jpg',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'N58 — Carnikava Riverside Retreat',
+  description,
+  url: 'https://n58.lv',
+  image: `https://n58.lv${image}`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Nēģu 58',
+    addressLocality: 'Carnikava',
+    addressRegion: 'Ādažu novads',
+    postalCode: 'LV-2163',
+    addressCountry: 'LV',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    // TODO: replace with exact coordinates from Google Maps pin
+    latitude: 57.1046,
+    longitude: 24.2241,
+  },
+  numberOfRooms: 2,
+  occupancy: {
+    '@type': 'QuantitativeValue',
+    maxValue: 4,
+  },
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'Free parking', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Garden', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Terrace', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Kitchen', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Riverfront', value: true },
+  ],
+  checkinTime: 'T15:00',
+  checkoutTime: 'T11:00',
+  priceRange: '$$',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://n58.lv${image}`} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`https://n58.lv${image}`} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- GA4 — add your Measurement ID below and uncomment to activate -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <!-- Meta Pixel — add your Pixel ID below and uncomment to activate -->
+    <!--
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentParent.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    -->
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased text-zinc-900 bg-white">
+    <slot />
+  </body>
+</html>

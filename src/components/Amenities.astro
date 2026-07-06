@@ -1,0 +1,73 @@
+---
+const amenities: Record<string, string[]> = {
+  'Sleeping': [
+    '2 bedrooms (sleeps up to 4)',
+    'King-size bed in master bedroom',
+    'Twin beds in second bedroom',
+    'Fresh linens provided',
+    'Wardrobe storage in each room',
+  ],
+  'Bathroom': [
+    'Full private bathroom',
+    'Hot shower',
+    'Towels provided',
+    'Hairdryer',
+  ],
+  'Kitchen & Dining': [
+    'Fully equipped kitchen',
+    'Refrigerator & freezer',
+    'Oven & stovetop',
+    'Microwave',
+    'Coffee maker',
+    'Dining table for 4',
+    'Full cookware & utensils',
+  ],
+  'Living & Work': [
+    'Living room with smart TV',
+    'High-speed WiFi',
+    'Sofa seating for 4',
+  ],
+  'Outdoor': [
+    'Large private garden',
+    'Retractable roof terrace',
+    'Outdoor table & chairs for 4',
+    'Private off-road parking',
+  ],
+  'Extras': [
+    'Washing machine',
+    'Iron & ironing board',
+    'Self check-in',
+    'Smoke detector',
+    'Carbon monoxide detector',
+  ],
+};
+---
+
+<section id="amenities" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-timber text-xs font-medium tracking-widest uppercase mb-3">What's Included</p>
+      <h2 class="font-display text-4xl text-zinc-900">Everything you need.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {Object.entries(amenities).map(([category, items]) => (
+        <div>
+          <h3 class="font-semibold text-zinc-900 text-sm mb-4 pb-2 border-b border-zinc-100 uppercase tracking-wide">
+            {category}
+          </h3>
+          <ul class="space-y-2.5">
+            {items.map(item => (
+              <li class="flex items-start gap-2.5 text-sm text-zinc-600">
+                <svg class="w-4 h-4 text-timber mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

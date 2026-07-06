@@ -1,0 +1,60 @@
+---
+const AIRBNB_URL = 'https://www.airbnb.com/h/n58?utm_source=website&utm_medium=footer';
+
+const navLinks = ['Gallery', 'About', 'Amenities', 'Location', 'FAQ'];
+---
+
+<footer class="bg-charcoal text-white py-16">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+      <div>
+        <div class="font-display text-3xl mb-3">N58</div>
+        <p class="text-white/40 text-sm leading-relaxed">
+          Nēģu 58, Carnikava<br />
+          Ādažu novads, Latvia
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-medium tracking-widest uppercase text-white/30 mb-5">Navigate</h4>
+        <ul class="space-y-2.5">
+          {navLinks.map(link => (
+            <li>
+              <a
+                href={`#${link.toLowerCase()}`}
+                class="text-white/55 hover:text-white text-sm transition-colors"
+              >
+                {link}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-medium tracking-widest uppercase text-white/30 mb-5">Book</h4>
+        <a
+          href={AIRBNB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-timber hover:bg-amber-700 text-white text-sm font-medium px-6 py-3 rounded-full transition-colors mb-6"
+        >
+          Book on Airbnb
+        </a>
+        <p class="text-white/35 text-xs leading-relaxed">
+          Questions? Reach out via Airbnb<br />
+          or email <a href="mailto:hello@n58.lv" class="text-timber hover:underline">hello@n58.lv</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/25">
+      <span>&copy; {new Date().getFullYear()} N58 Carnikava. All rights reserved.</span>
+      <a href="https://carnikava-rental.com" class="hover:text-white/50 transition-colors">
+        Explore more Carnikava rentals &rarr;
+      </a>
+    </div>
+  </div>
+</footer>

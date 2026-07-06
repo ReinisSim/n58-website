@@ -1,0 +1,50 @@
+---
+const AIRBNB_URL = 'https://www.airbnb.com/h/n58?utm_source=website&utm_medium=hero';
+---
+
+<section id="home" class="relative h-screen min-h-[640px] flex items-center justify-center overflow-hidden">
+  <!-- Background photo — place hero.jpg in public/images/ -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/images/hero.jpg')"
+  ></div>
+
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/45"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+    <p class="text-timber text-xs font-medium tracking-widest uppercase mb-5">
+      Carnikava · Latvia · 30 min from Riga
+    </p>
+    <h1 class="font-display text-5xl md:text-7xl font-medium mb-6 leading-tight">
+      River, forest<br />and the sea.
+    </h1>
+    <p class="text-white/75 text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed">
+      A modern 2-bedroom retreat next to the Vecgauja river — with the national park at your door
+      and the Baltic coast a 20-minute walk through the pines.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={AIRBNB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-timber hover:bg-amber-700 text-white font-medium px-8 py-4 rounded-full transition-colors text-sm tracking-wide"
+      >
+        Check availability on Airbnb
+      </a>
+      <a
+        href="#gallery"
+        class="border border-white/50 hover:border-white text-white font-medium px-8 py-4 rounded-full transition-colors text-sm tracking-wide"
+      >
+        See the property
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+    <span class="text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-8 bg-white/30 animate-pulse"></div>
+  </div>
+</section>

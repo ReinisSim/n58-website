@@ -1,0 +1,50 @@
+---
+// TODO: replace with real Airbnb listing URL once live
+const AIRBNB_URL = 'https://www.airbnb.com/h/n58?utm_source=website&utm_medium=nav';
+
+const links = [
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'About', href: '#about' },
+  { label: 'Amenities', href: '#amenities' },
+  { label: 'Location', href: '#location' },
+  { label: 'FAQ', href: '#faq' },
+];
+---
+
+<header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-display text-2xl font-semibold text-white tracking-tight">N58</a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      {links.map(l => (
+        <a href={l.href} class="text-sm text-white/80 hover:text-white transition-colors">
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href={AIRBNB_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-timber hover:bg-amber-700 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors"
+    >
+      Book on Airbnb
+    </a>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('site-nav');
+
+  function updateNav() {
+    if (window.scrollY > 80) {
+      nav?.classList.add('bg-charcoal', 'shadow-lg');
+    } else {
+      nav?.classList.remove('bg-charcoal', 'shadow-lg');
+    }
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+</script>

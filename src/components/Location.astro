@@ -1,0 +1,57 @@
+---
+const distances = [
+  { place: 'Vecgauja river', distance: '~50 m', how: 'Steps from the garden' },
+  { place: 'National park forest trail', distance: '2 min walk', how: 'On foot from the property' },
+  { place: 'Carnikava beach (Baltic Sea)', distance: '2 km', how: '~20 min forest walk through national park' },
+  { place: 'Carnikava village centre', distance: '~800 m', how: '10 min on foot' },
+  { place: 'Carnikava train station', distance: '~1.5 km', how: 'Regular trains to Riga' },
+  { place: 'Riga city centre', distance: '~30 km', how: '~30 min by car' },
+  { place: 'Riga International Airport', distance: '~35 km', how: '~35 min by car' },
+];
+---
+
+<section id="location" class="py-20 bg-stone-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-timber text-xs font-medium tracking-widest uppercase mb-3">Getting Here</p>
+      <h2 class="font-display text-4xl text-zinc-900">Close to nature. Close to Riga.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+
+      <!-- Map — update bbox and marker coords to exact location of Nēģu 58 -->
+      <div class="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=24.195%2C57.095%2C24.255%2C57.125&layer=mapnik&marker=57.1046%2C24.2241"
+          class="w-full h-full border-0"
+          loading="lazy"
+          title="Map showing location of N58, Nēģu 58, Carnikava, Latvia"
+        ></iframe>
+      </div>
+
+      <!-- Distances -->
+      <div>
+        <h3 class="font-semibold text-zinc-900 mb-6">Distances from N58</h3>
+        <div class="space-y-4">
+          {distances.map(d => (
+            <div class="flex justify-between items-start pb-4 border-b border-zinc-100 last:border-0">
+              <div>
+                <div class="font-medium text-zinc-900 text-sm">{d.place}</div>
+                <div class="text-zinc-400 text-xs mt-0.5">{d.how}</div>
+              </div>
+              <span class="text-timber font-semibold text-sm ml-6 whitespace-nowrap">{d.distance}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8 p-5 bg-white rounded-xl border border-zinc-100">
+          <p class="text-sm text-zinc-600 leading-relaxed">
+            <strong class="text-zinc-900">By car from Riga:</strong> Take the A1 road north toward
+            Carnikava. Turn onto Nēģu iela — N58 is near the riverside end of the street.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

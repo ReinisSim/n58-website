@@ -1,0 +1,96 @@
+---
+const faqs = [
+  {
+    q: 'How far is N58 from Riga?',
+    a: 'N58 is approximately 30 km north of Riga city centre — around a 30-minute drive along the A1 coastal road. Carnikava also has a train station roughly 1.5 km from the property with regular services to Riga.',
+  },
+  {
+    q: 'How do I get to Carnikava beach from N58?',
+    a: 'The beach is a 2 km walk directly through the Carnikava section of the national park forest. The trail starts just metres from the property — a beautiful pine forest walk of about 20–25 minutes on foot.',
+  },
+  {
+    q: 'Is there parking at N58?',
+    a: 'Yes. Private off-road parking is available on-site at no extra cost.',
+  },
+  {
+    q: 'How many guests can stay at N58?',
+    a: 'N58 accommodates up to 4 guests across two bedrooms. The master bedroom has a king-size bed; the second bedroom has twin beds.',
+  },
+  {
+    q: 'Is N58 suitable for families with children?',
+    a: 'Yes. The large private garden provides safe outdoor space, and the quiet residential setting is family-friendly. The layout works well for two adults and two children.',
+  },
+  {
+    q: 'Is there WiFi at N58?',
+    a: 'Yes — high-speed WiFi is included. The connection is suitable for remote work, video calls, and streaming.',
+  },
+  {
+    q: 'Can I access the national park directly from N58?',
+    a: 'Yes. The property borders the Carnikava protected coastal area, part of the Piejūras lowlands nature reserve. You can walk into the national park forest from near the property and reach the Baltic coast without crossing any roads.',
+  },
+  {
+    q: 'What activities are available near N58?',
+    a: 'The area is ideal for swimming at Carnikava beach, forest walks and cycling in the national park, kayaking and fishing on the Vecgauja river, birdwatching in the coastal wetlands, and mushroom or berry picking in season. Riga\'s full range of city activities is 30 minutes away.',
+  },
+  {
+    q: 'What are the check-in and check-out times?',
+    a: 'Standard check-in is from 15:00 and check-out by 11:00. Early or late arrangements may be possible — message via Airbnb to confirm.',
+  },
+  {
+    q: 'What is the nearest supermarket to N58?',
+    a: 'There are small shops in Carnikava village centre, about a 10-minute walk. For a larger supermarket (Maxima, Rimi), the nearest options are along the main road toward Riga — roughly a 5–10 minute drive.',
+  },
+  {
+    q: 'What is the best time of year to visit Carnikava?',
+    a: 'Summer (June–August) is peak season — warm temperatures, long Nordic days, and a lively beach scene. Late spring (May) and early autumn (September) are quieter, with mild weather perfect for nature walks. The forest is beautiful year-round.',
+  },
+  {
+    q: 'Is N58 pet-friendly?',
+    a: 'Please check the current Airbnb listing for the latest pet policy, as this may vary by season.',
+  },
+];
+---
+
+<section id="faq" class="py-20 bg-stone-50">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-timber text-xs font-medium tracking-widest uppercase mb-3">Questions</p>
+      <h2 class="font-display text-4xl text-zinc-900">Frequently asked.</h2>
+    </div>
+
+    <div class="space-y-3">
+      {faqs.map(faq => (
+        <details class="bg-white rounded-xl border border-zinc-100 group">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none hover:bg-stone-50 transition-colors rounded-xl">
+            <span class="font-medium text-zinc-900 text-sm">{faq.q}</span>
+            <svg
+              class="w-5 h-5 text-zinc-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-45"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-zinc-600 text-sm leading-relaxed">{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FAQPage schema for AI search and Google rich results -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+})} />

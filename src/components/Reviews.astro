@@ -1,0 +1,52 @@
+---
+// Add reviews here as they come in from Airbnb.
+// Format: { author, country, date, rating (1-5), text }
+const reviews: { author: string; country: string; date: string; rating: number; text: string }[] = [
+  // Example (uncomment and edit when first reviews arrive):
+  // {
+  //   author: 'Anna K.',
+  //   country: 'Finland',
+  //   date: 'July 2025',
+  //   rating: 5,
+  //   text: 'Incredible location — woke up to the sound of the river and walked to the beach through the forest. The house is spotless and modern. Will definitely return.',
+  // },
+];
+
+const AIRBNB_URL = 'https://www.airbnb.com/h/n58?utm_source=website&utm_medium=reviews';
+---
+
+<section id="reviews" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-timber text-xs font-medium tracking-widest uppercase mb-3">Guest Reviews</p>
+      <h2 class="font-display text-4xl text-zinc-900">What guests say.</h2>
+    </div>
+
+    {reviews.length > 0 ? (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reviews.map(r => (
+          <div class="bg-stone-50 rounded-2xl p-6">
+            <div class="flex mb-4">
+              {Array.from({ length: r.rating }).map(() => (
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p class="text-zinc-700 text-sm leading-relaxed mb-4">"{r.text}"</p>
+            <div class="text-xs text-zinc-400">{r.author} · {r.country} · {r.date}</div>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-16 bg-stone-50 rounded-2xl">
+        <p class="text-zinc-400 text-sm mb-2">N58 is opening for guests soon — reviews on the way.</p>
+        <p class="text-zinc-500 text-sm">
+          <a href={AIRBNB_URL} target="_blank" rel="noopener noreferrer" class="text-timber underline underline-offset-2">
+            Check availability on Airbnb
+          </a> and be among the first.
+        </p>
+      </div>
+    )}
+  </div>
+</section>

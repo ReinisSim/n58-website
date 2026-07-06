@@ -1,0 +1,53 @@
+---
+const highlights = [
+  {
+    icon: '🌊',
+    title: 'Vecgauja Riverfront',
+    desc: 'Steps from the calm waters of the Vecgauja — perfect for morning walks, kayaking, and fishing.',
+  },
+  {
+    icon: '🌲',
+    title: 'National Park Access',
+    desc: 'The Carnikava protected coastal area starts right outside. Pine forest trails from the garden.',
+  },
+  {
+    icon: '🏖️',
+    title: 'Baltic Sea Beach',
+    desc: '2 km walk through the national park forest brings you to an unspoiled stretch of Baltic coastline.',
+  },
+  {
+    icon: '🏡',
+    title: 'Private Garden',
+    desc: 'A generous private garden with outdoor seating — ideal for summer evenings and morning coffee.',
+  },
+  {
+    icon: '☂️',
+    title: 'Louvered Terrace',
+    desc: 'Motorised louvered pergola roof — open to the sky or fully sheltered with the turn of a dial.',
+  },
+  {
+    icon: '🚗',
+    title: 'Free Parking',
+    desc: 'Private off-road parking on-site at no extra cost. No street hunting.',
+  },
+];
+---
+
+<section id="highlights" class="py-20 bg-stone-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-timber text-xs font-medium tracking-widest uppercase mb-3">Why N58</p>
+      <h2 class="font-display text-4xl text-zinc-900">Made for the outdoors.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {highlights.map(h => (
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">{h.icon}</div>
+          <h3 class="font-semibold text-zinc-900 mb-2">{h.title}</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">{h.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
