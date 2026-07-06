@@ -1,15 +1,13 @@
 ---
 // Add reviews here as they come in from Airbnb.
 // Format: { author, country, date, rating (1-5), text }
-const reviews: { author: string; country: string; date: string; rating: number; text: string }[] = [
-  // Example (uncomment and edit when first reviews arrive):
-  // {
-  //   author: 'Anna K.',
-  //   country: 'Finland',
-  //   date: 'July 2025',
-  //   rating: 5,
-  //   text: 'Incredible location — woke up to the sound of the river and walked to the beach through the forest. The house is spotless and modern. Will definitely return.',
-  // },
+const reviews: { author: string; country?: string; date: string; rating: number; text: string }[] = [
+  {
+    author: 'Rēzija',
+    date: 'July 2026',
+    rating: 5,
+    text: 'A pleasant and cozy place. Good location, everything is clean, fresh and equipped with everything necessary for a comfortable stay. Thank you for your hospitality!',
+  },
 ];
 
 const AIRBNB_URL = 'https://www.airbnb.com/h/n58?utm_source=website&utm_medium=reviews';
@@ -34,7 +32,7 @@ const AIRBNB_URL = 'https://www.airbnb.com/h/n58?utm_source=website&utm_medium=r
               ))}
             </div>
             <p class="text-zinc-700 text-sm leading-relaxed mb-4">"{r.text}"</p>
-            <div class="text-xs text-zinc-400">{r.author} · {r.country} · {r.date}</div>
+            <div class="text-xs text-zinc-400">{r.author}{r.country ? ` · ${r.country}` : ''} · {r.date}</div>
           </div>
         ))}
       </div>
